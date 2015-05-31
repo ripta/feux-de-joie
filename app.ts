@@ -13,6 +13,8 @@ var app = express()
 var server = http.createServer(app)
 var ioServer = sio.listen(server)
 
+//ioServer.set("log level", 1000)
+
 app.engine("jade", (path, options, next) => {
   options.doctype = "html"
   require("jade").__express(path, options, next)
@@ -28,15 +30,14 @@ app.use(bodyParser.json())
 
 app.use(express.static(__dirname + "/public"))
 
-var env = process.env.NODE_ENV || "development"
-if (env === "development") {
+if (app.settings.env === "development") {
 	var errorHandlingMiddleware = errorHandler({
 		dumpExceptions: true,
 		showStack: true
 	})
   app.use(logger("dev"))
 	app.use(errorHandlingMiddleware)
-} else if (env === "production") {
+} else if (app.settings.env === "production") {
 	app.use(logger("combined"))
   app.use(errorHandler())
 }
