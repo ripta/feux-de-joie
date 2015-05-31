@@ -1,13 +1,16 @@
 /// <reference path="typings/tsd.d.ts" />
 
-import express = require("express")
-import http = require("http")
 import bodyParser = require("body-parser")
+import http = require("http")
 import errorHandler = require("errorhandler")
+import express = require("express")
+import sio = require("socket.io")
 
 import homepageRoutes = require("./routes/homepage")
 
 var app = express()
+var server = http.createServer(app)
+var ioServer = sio.listen(server)
 
 app.set("views", __dirname + "/views")
 app.set("view engine", "jade")
@@ -35,3 +38,7 @@ if (env === "development") {
 }
 
 app.get("/", homepageRoutes.index)
+
+server.listen(3000, function() {
+	console.log("feux-de-joie listening on :%d in %s mode", 3000, app.settings.env);
+})
