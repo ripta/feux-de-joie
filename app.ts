@@ -12,11 +12,15 @@ var app = express()
 var server = http.createServer(app)
 var ioServer = sio.listen(server)
 
-app.set("views", __dirname + "/views")
-app.set("view engine", "jade")
-app.set("view options", {
-	layout: false
+app.engine("jade", (path, options, next) => {
+  options.doctype = "html"
+  require("jade").__express(path, options, next)
 })
+app.set("view engine", "jade")
+app.set("views", __dirname + "/views")
+//app.set("view options", {
+//	layout: false
+//})
 
 var bodyParsingMiddleware = bodyParser.urlencoded({
 	extended: true
@@ -39,7 +43,7 @@ if (env === "development") {
 
 app.get("/", homepageRoutes.index)
 app.get("/components/:file.html", (req: express.Request, rsp: express.Response) => {
-  rsp.render(req.params.file)
+  rsp.render("components/" + req.params.file)
 })
 
 server.on("request", (req: http.IncomingMessage) => {
