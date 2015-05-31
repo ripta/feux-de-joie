@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/ripta/feux-de-joie/issues"
   },
-  "homepage": "https://github.com/ripta/feux-de-joie#readme"
+  "homepage": "https://github.com/ripta/feux-de-joie#readme",
+  "dependencies": {
+    "express": "^4.12.4",
+    "jade": "^1.10.0",
+  }
 }
