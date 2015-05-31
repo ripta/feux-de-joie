@@ -5,6 +5,9 @@
     "target": "es5"
   },
   "files": [
-    "app.ts"
+    "app.ts",
+    "routes/chatrooms.ts",
+    "routes/homepage.ts",
+    "routes/messages.ts"
   ]
 }
