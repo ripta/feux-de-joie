@@ -18,9 +18,6 @@ app.engine("jade", (path, options, next) => {
 })
 app.set("view engine", "jade")
 app.set("views", __dirname + "/views")
-//app.set("view options", {
-//	layout: false
-//})
 
 var bodyParsingMiddleware = bodyParser.urlencoded({
 	extended: true
