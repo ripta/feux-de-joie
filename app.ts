@@ -1,9 +1,10 @@
 /// <reference path="typings/tsd.d.ts" />
 
 import bodyParser = require("body-parser")
-import http = require("http")
 import errorHandler = require("errorhandler")
 import express = require("express")
+import http = require("http")
+import logger = require("morgan")
 import sio = require("socket.io")
 
 import homepageRoutes = require("./routes/homepage")
@@ -33,18 +34,16 @@ if (env === "development") {
 		dumpExceptions: true,
 		showStack: true
 	})
+  app.use(logger("dev"))
 	app.use(errorHandlingMiddleware)
 } else if (env === "production") {
-	app.use(errorHandler())
+	app.use(logger("combined"))
+  app.use(errorHandler())
 }
 
 app.get("/", homepageRoutes.index)
 app.get("/components/:file.html", (req: express.Request, rsp: express.Response) => {
   rsp.render("components/" + req.params.file)
-})
-
-server.on("request", (req: http.IncomingMessage) => {
-  console.log(req.method + " " + req.url)
 })
 
 server.listen(3000, () => {
