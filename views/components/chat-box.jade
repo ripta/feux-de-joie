@@ -1,0 +1,5 @@
+section#messages
+  div.message
+section#inputs
+  input(type="text", #message)
+  input(type="submit", value="Send", (click)="enterMessage(message.value)")
