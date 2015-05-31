@@ -1,6 +1,10 @@
 extends layout
 block main_content
   h1= title
+  chat-box
+  script System.import("chat/main")
+block xx_main_content
+  h1= title
   p Welcome to #{title}
   ul
   - each user in users

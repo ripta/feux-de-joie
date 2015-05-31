@@ -38,6 +38,13 @@ if (env === "development") {
 }
 
 app.get("/", homepageRoutes.index)
+app.get("/components/:file.html", function(req: express.Request, rsp: express.Response) {
+  rsp.render(req.params.file)
+})
+
+server.on("request", function(req: http.IncomingMessage) {
+  console.log(req.method + " " + req.url)
+})
 
 server.listen(3000, function() {
 	console.log("feux-de-joie listening on :%d in %s mode", 3000, app.settings.env);
