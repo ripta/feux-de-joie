@@ -1,0 +1,9 @@
+extends layout
+block main_content
+  h1= title
+  p Welcome to #{title}
+  ul
+  - each user in users
+    li
+      a(href="/user/"+user._id)
+        strong= user._id
