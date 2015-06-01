@@ -7,7 +7,11 @@ export class ModelStore {
     this.records.push(record)
   }
 
-  forEach(callback: Function) {
+  findAll() {
+    return this.records
+  }
+
+  forEach(callback) {
     this.records.forEach(callback)
   }
 
@@ -21,7 +25,7 @@ export class ModelStore {
     return null
   }
 
-  removeMatching(pred: Function) {
+  removeMatching(pred) {
     var records = this.records.filter(pred)
     for (var i = 0; i < records.length; i++) {
       var index = this.records.indexOf(records[i])
