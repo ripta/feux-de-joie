@@ -6,7 +6,7 @@ section#inputs
     placeholder="Enter message...",
     #message_box,
     autofocus,
-    (keyup)="processMessageFrom($event, message_box)")
+    (keyup.enter)="processMessageFrom($event, message_box)")
   input(
     type="submit",
     value="Send",

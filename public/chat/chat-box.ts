@@ -8,9 +8,7 @@ export class ChatBoxComponent {
   constructor() { }
 
   processMessageFrom = ($event, messageBox) => {
-    if ($event.which === 13) {
-      this.sendMessageFrom(messageBox)
-    }
+    this.sendMessageFrom(messageBox)
   }
 
   sendMessage = (message) => {
