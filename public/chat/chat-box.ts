@@ -8,7 +8,6 @@ export class ChatBoxComponent {
   constructor() { }
 
   processMessageFrom($event, messageBox) {
-    console.log(arguments)
     if ($event.which === 13) {
       this.sendMessageFrom(messageBox)
     }
