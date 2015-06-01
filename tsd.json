@@ -22,6 +22,9 @@
     },
     "socket.io/socket.io.d.ts": {
       "commit": "aae45edc2a66df08c931bd8f104df34aeae6306d"
+    },
+    "morgan/morgan.d.ts": {
+      "commit": "2ca2ee37d47df607cc006824c516050a4cf869f0"
     }
   }
 }
