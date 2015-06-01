@@ -8,6 +8,9 @@
     "app.ts",
     "public/chat/chat-box.ts",
     "public/chat/index.ts",
+    "public/chat/message-service.ts",
+    "public/chat/model-store.ts",
+    "public/chat/ordered-model.ts",
     "routes/homepage.ts"
   ]
 }
