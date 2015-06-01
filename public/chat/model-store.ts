@@ -1,17 +1,20 @@
 import {OrderedModel} from "./ordered-model"
-import {ListWrapper} from "../../node_modules/angular2/src/facade/collection"
 
 export class ModelStore {
   records: List<OrderedModel> = []
 
   add(record: OrderedModel) {
-    ListWrapper.push(this.records, record)
+    this.records.push(record)
+  }
+
+  forEach(callback: Function) {
+    this.records.forEach(callback)
   }
 
   remove(record: OrderedModel) {
     var i = this.records.indexOf(record)
     if (i > -1) {
-      var spliced = ListWrapper.splice(this.records, i, 1)
+      var spliced = this.records.splice(i, 1)
       return spliced[0]
     }
 
@@ -19,8 +22,11 @@ export class ModelStore {
   }
 
   removeMatching(pred: Function) {
-    var records = ListWrapper.filter(this.records, pred)
-    ListWrapper.removeAll(this.records, records)
+    var records = this.records.filter(pred)
+    for (var i = 0; i < records.length; i++) {
+      var index = this.records.indexOf(records[i])
+      this.records.splice(index, 1)
+    }
     return records
   }
 }
