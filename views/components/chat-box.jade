@@ -7,4 +7,8 @@ section#inputs
     #message_box,
     autofocus,
     (keyup)="processMessageFrom($event, message_box)")
-  input(type="submit", value="Send", (click)="sendMessageFrom(message_box)")
+  input(
+    type="submit",
+    value="Send",
+    (click)="sendMessageFrom(message_box)",
+    [disabled]="message_box.value === ''")
