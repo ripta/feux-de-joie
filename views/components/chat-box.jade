@@ -1,6 +1,12 @@
-section#messages
-  div.message
+section#room
+  ul.messages
+    li(*ng-for="#message of messageService.findAll()")
+      span
+        strong &lt;{{ message.author }}&gt;
+        |  {{ message.content }}
 section#inputs
+  span
+    strong {{ nickname }}:
   input(
     type="text",
     placeholder="Enter message...",
