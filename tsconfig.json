@@ -3,5 +3,11 @@
     "emitDecoratorMetadata": true,
     "module": "commonjs",
     "target": "es5"
-  }
+  },
+  "files": [
+    "app.ts",
+    "public/chat/chat-box.ts",
+    "public/chat/index.ts",
+    "routes/homepage.ts"
+  ]
 }
