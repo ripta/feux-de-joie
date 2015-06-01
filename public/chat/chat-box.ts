@@ -1,10 +1,10 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {bootstrap, Component, View} from "angular2/angular2"
+import {Component, View} from "angular2/angular2"
 
 @Component({selector: "chat-box"})
 @View({templateUrl: "components/chat-box.html"})
-class ChatBoxComponent {
+export class ChatBoxComponent {
   constructor() { }
 
   processMessageFrom($event, messageBox) {
@@ -23,5 +23,3 @@ class ChatBoxComponent {
     messageBox.value = ""
   }
 }
-
-bootstrap(ChatBoxComponent)

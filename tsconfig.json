@@ -6,7 +6,8 @@
   },
   "files": [
     "app.ts",
-    "public/chat/main.ts",
+    "public/chat/chat-box.ts",
+    "public/chat/index.ts",
     "routes/homepage.ts"
   ]
 }
