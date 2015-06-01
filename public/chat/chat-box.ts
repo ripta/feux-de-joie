@@ -7,17 +7,17 @@ import {Component, View} from "angular2/angular2"
 export class ChatBoxComponent {
   constructor() { }
 
-  processMessageFrom($event, messageBox) {
+  processMessageFrom = ($event, messageBox) => {
     if ($event.which === 13) {
       this.sendMessageFrom(messageBox)
     }
   }
 
-  sendMessage(message) {
-    alert(message)
+  sendMessage = (message) => {
+    console.log(message)
   }
 
-  sendMessageFrom(messageBox) {
+  sendMessageFrom = (messageBox) => {
     this.sendMessage(messageBox.value)
     messageBox.value = ""
   }
