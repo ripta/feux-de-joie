@@ -5,3 +5,4 @@
 /// <reference path="errorhandler/errorhandler.d.ts" />
 /// <reference path="socket.io/socket.io.d.ts" />
 /// <reference path="morgan/morgan.d.ts" />
+/// <reference path="../node_modules/angular2/src/facade/collection.d.ts" />
