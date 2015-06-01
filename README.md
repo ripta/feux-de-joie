@@ -3,6 +3,6 @@
 ```
 npm install
 tsd reinstall
-tsc
+tsc [--watch]
 node app.js
 ```
