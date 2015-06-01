@@ -7,11 +7,20 @@ import {bootstrap, Component, View} from "angular2/angular2"
 class ChatBoxComponent {
   constructor() { }
 
-  enterMessage(message) {
-    if (evt.which === 13) {
-      // this.sendMessage(messageBox.value)
-      messageBox.value = ""
+  processMessageFrom($event, messageBox) {
+    console.log(arguments)
+    if ($event.which === 13) {
+      this.sendMessageFrom(messageBox)
     }
+  }
+
+  sendMessage(message) {
+    alert(message)
+  }
+
+  sendMessageFrom(messageBox) {
+    this.sendMessage(messageBox.value)
+    messageBox.value = ""
   }
 }
 
