@@ -1,5 +1,10 @@
 section#messages
   div.message
 section#inputs
-  input(type="text", #message)
-  input(type="submit", value="Send", (click)="enterMessage(message.value)")
+  input(
+    type="text",
+    placeholder="Enter message...",
+    #message_box,
+    autofocus,
+    (keyup)="processMessageFrom($event, message_box)")
+  input(type="submit", value="Send", (click)="sendMessageFrom(message_box)")
